@@ -1,5 +1,7 @@
 file = "expenses.txt"
 
+from expense import Expense
+
 def welcome():
     print("Welcome to your Expense Tracker!")
     print("---------------------------------")
