@@ -55,4 +55,40 @@ def total_expenses(expenses):
 
     print(f"Your Total Expenses are ${total}")
 
+def remove_expense(expenses):
+    if not expenses:
+        print("\n There are no expenses to remove.")
+        return
+    
+    view_expenses(expenses)
+    try:
+        number = int(input("Enter the number of the expense to remove: "))
+        if number >= 1 and number <= len(expenses):
+            removed = expenses.pop(number - 1)
+            save_expenses(expenses)
+            print(f"Removed expense: {removed['name']} - {removed['amount']}")
+        else: 
+            print("Invalid number.")
+    except ValueError:
+        print("Enter a valid number. \n")
 
+def main():
+    welcome()
+    expenses = load_expenses()
+    while True:
+        choice = input("Enter you choice: ")
+        if choice == '1':
+            add_expense(expenses)
+        elif choice == '2':
+            view_expenses(expenses)
+        elif choice == '3':
+            total_expenses(expenses)
+        elif choice == '4':
+            remove_expense(expenses)     
+        elif choice == '5':
+            print("Thank you for using the Expense Tracker!") 
+        else:
+            print("Invalid Input")  
+
+
+    
