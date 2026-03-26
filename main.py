@@ -8,6 +8,7 @@ def welcome():
     print("3. Total Expenses")
     print("4. Remove Expense")
     print("5. Exit")
+    print("---------------------------------")
 
 def load_expenses():
     expenses = []
@@ -15,7 +16,7 @@ def load_expenses():
         with open(file, 'r') as f:
             for line in f:
                 name, amount = line.strip().split(',')
-                expenses.append((name, amount))
+                expenses.append({"name": name, "amount": float(amount)})
     except FileNotFoundError:
         print("File doesnt exist.")
     except Exception as e:
@@ -45,8 +46,9 @@ def view_expenses(expenses):
     print("\nExpenses:")
     i = 1
     for e in expenses:
-        print(f"{i}. {e['name']}: ${e['amount']}")
-        print()
+        print(f"{i}. {e['name']} = ${e['amount']}")
+        i += 1
+    print()
 
 def total_expenses(expenses):
     total = 0 
@@ -87,8 +89,10 @@ def main():
             remove_expense(expenses)     
         elif choice == '5':
             print("Thank you for using the Expense Tracker!") 
+            break
         else:
             print("Invalid Input")  
+
 
 main()
     
