@@ -31,7 +31,7 @@ def add_expense(expenses):
     try:
         name = input("Enter expense name: ")
         amount = float(input("Enter expense amount: "))
-        expenses.append((name, amount))
+        expenses.append({"name": name, "amount": amount})
         save_expenses(expenses)
         print("Expense added successfully!")
 
@@ -90,5 +90,5 @@ def main():
         else:
             print("Invalid Input")  
 
-
+main()
     
