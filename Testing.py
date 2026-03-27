@@ -1,7 +1,7 @@
-from expense import Expense
+from expense import Expense   # imports the Expense class from the expense file
 
-def run_tests():
-    e = Expense("Shopping", 50)
+def run_tests():        # function to run tests on the Expense class and the functions in the expense_utils file
+    e = Expense("Shopping", 50) 
     assert e.name == "Shopping"
     assert e.amount == 50
 
@@ -27,5 +27,5 @@ def run_tests():
 
     print("Tests passed!")
 
-if __name__ == "__main__":
+if __name__ == "__main__":   # runs the run_tests function when the program is executed
     run_tests()

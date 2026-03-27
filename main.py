@@ -1,9 +1,9 @@
-file = "expenses.txt"
+file = "expenses.txt"  # file where expenses will be stored
 
-from expense import Expense
-from expense_utils import load_expenses, save_expenses, view_expenses, total_expenses
+from expense import Expense #imports the Expense class from the expense file
+from expense_utils import load_expenses, save_expenses, view_expenses, total_expenses #imports the functions from the expense_utils file
 
-def welcome():
+def welcome():   #displays the welcome message and the menu options to the user
     print("Welcome to your Expense Tracker!")
     print("---------------------------------")
     print("1. Add Expense")
@@ -13,7 +13,7 @@ def welcome():
     print("5. Exit")
     print("---------------------------------")
 
-def add_expense(expenses):
+def add_expense(expenses):     # function to add an expense to the expense list and save to the file
     try:
         name = input("Enter expense name: ")
         amount = float(input("Enter expense amount: "))
@@ -26,7 +26,7 @@ def add_expense(expenses):
     except Exception as e:
         print(f"An error has occurred: {e}")
 
-def remove_expense(expenses):
+def remove_expense(expenses):      #function to remove an expense from the expense list and save the updated list to the file
     if not expenses:
         print("\n There are no expenses to remove.")
         return
@@ -42,7 +42,7 @@ def remove_expense(expenses):
     except ValueError as e:
         print(f"Enter a valid number. \n")
 
-def main():
+def main():   # the main function that runs the program and handles the user input and calls the right function based on what they chose
     welcome()
     expenses = load_expenses()
     while True:
@@ -61,5 +61,5 @@ def main():
         else:
             print("Invalid Input")  
 
-if __name__ == "__main__":
+if __name__ == "__main__":   #runs the main function when the program is executed
     main()

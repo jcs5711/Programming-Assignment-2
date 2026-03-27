@@ -1,6 +1,6 @@
-from expense import Expense
+from expense import Expense  # imports the Expense class from the expense file
 
-def load_expenses(filename="expenses.txt"):
+def load_expenses(filename="expenses.txt"):   # function to load expenses from the file and return a list of Expense objects
     expenses = []
     try:
         with open(filename, 'r') as f: 
@@ -15,12 +15,12 @@ def load_expenses(filename="expenses.txt"):
         print(f"An error occurred while loading your expenses: {e}")
     return expenses
 
-def save_expenses(expenses, filename="expenses.txt"):
+def save_expenses(expenses, filename="expenses.txt"):      # function to save the list of Expense objects to the file
     with open(filename, 'w') as f:
         for e in expenses:
             f.write(f"{e.name},{e.amount}\n")
 
-def view_expenses(expenses):
+def view_expenses(expenses):      # function to display the list of expenses to the user
     print("\nExpenses:")
     if not expenses:
         print("No expenses yet.")
@@ -28,6 +28,6 @@ def view_expenses(expenses):
     for i, e in enumerate(expenses, 1):
         print(f"{i}. {e}")
 
-def total_expenses(expenses):
+def total_expenses(expenses):       # function to calculate and display the total amount of expenses to the user
     total = sum(e.amount for e in expenses)
     print(f"\nYour Total Expenses are ${total:.2f}")
